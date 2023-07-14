@@ -87,7 +87,7 @@ createGlobalStyle`
 
 包括：logo, Nav菜单, 按钮和搜索框及动画
 
-2、数据管理-含详细修改步骤
+2、使用react-redux进行应用的数据管理
 
 为了让数据管理更加方便，这里安装redux
 
@@ -244,6 +244,82 @@ export default (state = defaultState, action) => {
 ```
 
 `handleInputBlur` 同理修改即可。
+
+7、优化 header 组件
+
+此时 header 组件只剩下 render 函数了，所以可以优化成为一个 **无状态组件**
+
+```
+// 新
+const Header = (props) => {
+	return (
+		<HeaderWrapper>
+			<Logo />
+			<Nav>
+				<NavItem className="left active">首页</NavItem>
+				<NavItem className="left">下载</NavItem>
+				<NavItem className="right">AA</NavItem>
+				<NavItem className="right">登录</NavItem>
+				<SearchWrapper>
+					<CSSTransition
+						in={props.focused}
+						timeout={200}
+						classNames="slide"
+					>
+						<NavSearch
+							className={props.focused ? 'focused' : ''}
+							onFocus={props.handleInputFocus}
+							onBlur={props.handleInputBlur}
+						></NavSearch>
+					</CSSTransition>
+				</SearchWrapper>
+			</Nav>
+			<Addition>
+				<Button className="writting">写文章</Button>
+				<Button className="reg">注册</Button>
+			</Addition>
+		</HeaderWrapper>
+	);
+}
+
+// 旧
+class Header extends Component {
+
+	render() {
+		return (
+			<HeaderWrapper>
+				<Logo />
+				<Nav>
+					<NavItem className="left active">首页</NavItem>
+					<NavItem className="left">下载</NavItem>
+					<NavItem className="right">AA</NavItem>
+					<NavItem className="right">登录</NavItem>
+					<SearchWrapper>
+						<CSSTransition
+							in={this.props.focused}
+							timeout={200}
+							classNames="slide"
+						>
+							<NavSearch
+								className={this.props.focused ? 'focused' : ''}
+								onFocus={this.props.handleInputFocus}
+								onBlur={this.props.handleInputBlur}
+							></NavSearch>
+						</CSSTransition>
+					</SearchWrapper>
+				</Nav>
+				<Addition>
+					<Button className="writting">写文章</Button>
+					<Button className="reg">注册</Button>
+				</Addition>
+			</HeaderWrapper>
+		)
+	}
+}
+```
+
+> NOTE: 需要去掉新写法中的 `this`
+> 改写后好处：性能比较好，因为少了原写法里的一些生命周期函数
 
 
 

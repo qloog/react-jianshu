@@ -11,38 +11,35 @@ import {
 	Button
 } from './style';
 
-class Header extends Component {
-
-	render() {
-		return (
-			<HeaderWrapper>
-				<Logo />
-				<Nav>
-					<NavItem className="left active">首页</NavItem>
-					<NavItem className="left">下载</NavItem>
-					<NavItem className="right">AA</NavItem>
-					<NavItem className="right">登录</NavItem>
-					<SearchWrapper>
-						<CSSTransition
-							in={this.props.focused}
-							timeout={200}
-							classNames="slide"
-						>
-							<NavSearch
-								className={this.props.focused ? 'focused' : ''}
-								onFocus={this.props.handleInputFocus}
-								onBlur={this.props.handleInputBlur}
-							></NavSearch>
-						</CSSTransition>
-					</SearchWrapper>
-				</Nav>
-				<Addition>
-					<Button className="writting">写文章</Button>
-					<Button className="reg">注册</Button>
-				</Addition>
-			</HeaderWrapper>
-		)
-	}
+const Header = (props) => {
+	return (
+		<HeaderWrapper>
+			<Logo />
+			<Nav>
+				<NavItem className="left active">首页</NavItem>
+				<NavItem className="left">下载</NavItem>
+				<NavItem className="right">AA</NavItem>
+				<NavItem className="right">登录</NavItem>
+				<SearchWrapper>
+					<CSSTransition
+						in={props.focused}
+						timeout={200}
+						classNames="slide"
+					>
+						<NavSearch
+							className={props.focused ? 'focused' : ''}
+							onFocus={props.handleInputFocus}
+							onBlur={props.handleInputBlur}
+						></NavSearch>
+					</CSSTransition>
+				</SearchWrapper>
+			</Nav>
+			<Addition>
+				<Button className="writting">写文章</Button>
+				<Button className="reg">注册</Button>
+			</Addition>
+		</HeaderWrapper>
+	);
 }
 
 const mapStateToProps = (state) => {
