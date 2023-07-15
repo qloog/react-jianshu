@@ -346,4 +346,13 @@ export default store;
 - 2. 此时我们可以将 `src/store/reducer` 里的代码进行拆分，将其业务代码写到对应的组件内, 比如 `src/common/header/score/reducer`  
 - 3. 然后使用 `combineReducers` 在 `src/store/reducer` 中进行组合
 
+10、actionCreators与constants的拆分
+
+为了方便action和常量的统一管理，会对 `header/index` 中的action创建和 `header/reducer` 的 action 常量进行拆分
+
+在组件 `header` 中新建 `actionCreators.js` 和 `contants.js`， 然后填充对应的内容。
+
+
+
+
 
