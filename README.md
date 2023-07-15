@@ -81,7 +81,7 @@ createGlobalStyle`
 
 ### 开发具体的组件
 
-到这里就可以开发自己的组件了
+到这里就可以开发自己的业务组件了
 
 1、增加header组件
 
@@ -321,6 +321,23 @@ class Header extends Component {
 > NOTE: 需要去掉新写法中的 `this`
 > 改写后好处：性能比较好，因为少了原写法里的一些生命周期函数
 
+8、安装 redux-devtools 工具
 
+为了方便进行本地调试，这里安装一个调试工具 `https://github.com/reduxjs/redux-devtools`
+
+根据说明文档(https://github.com/reduxjs/redux-devtools/tree/main/extension#12-advanced-store-setup)，进行代码配置, 如下
+
+```
+import { createStore, compose } from 'redux';
+import reducer from './reducer';
+
+// 新增
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// 在下面代码添加 composeEnhancers()
+const store = createStore(reducer, composeEnhancers());
+
+export default store;
+```
 
 
