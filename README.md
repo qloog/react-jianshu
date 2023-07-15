@@ -415,6 +415,29 @@ state.get('focused');
 state.set('focused', true);
 ```
 
+12、使用 redux-immutable 统一数据格式 
+
+以 `state.header.get('focused')` 为例，state是一个js对象，header是一个 `immutable` 对象，行为不统一
+我们希望统一为 `immutable` 对象, 这时需要引入一个第三方库 `redux-immutable` 来统一管理.
+
+```
+// 安装 redux-immutable
+npm install redux-immutable
+
+// 修改 src/store/reducer 中的 combineReducers
+import { combineReducers } from 'redux';
+改为
+import { combineReducers } from 'redux-immutable';
+// 改完后的 `combineReducers` 就是一个 immutable 对象了。
+
+// 修改获取值的地方, 此时的state是一个 immutable 对象了
+state.get('header').get('focused')
+// or 和上面的get是等价的
+state.getIn['header', 'focused']
+```
+
+
+
 
 
 
