@@ -436,6 +436,13 @@ state.get('header').get('focused')
 state.getIn['header', 'focused']
 ```
 
+13、增加搜索标签组件
+
+主要是ui的布局处理
+
+14、从接口中获取数据
+
+> 将header的无状态组件改为带类风格组件，方便后续方法方便获取参数，不用来回传递参数。
 
 
 
