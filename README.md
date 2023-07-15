@@ -383,6 +383,38 @@ import * as contants from './contants';
 export { reducer, actionCreators, contants };
 ```
 
+11、使用 Immutable.js来管理store中的数据
+
+对于 `reducer` 中的 state 的数据 **一定是不能修改的**， 需要牢记，只能copy后修改再返回
+
+为了防止开发过程的对原始 state 的修改，这里引入 `Immutable` 组件来管理，`Immutable` 是由fackbook团队历时3年所开发的
+
+Immutable 直译就是不可改变，通过引入 Immutable 来生成一个 Immutable 对象
+
+a. 安装 Immutable
+
+```
+npm install immutable
+```
+
+b. 将 state 变为 Immutable 对象
+
+> 所有调用state的地方都要改为 Immutable 对象的形式
+
+```
+// reducer中的 defaultState 要改为 Immutable 对象
+const defaultState = fromJS({
+	focused: false
+});
+
+// 对获取的修改
+state.get('focused');
+
+// 对写入的修改
+// immutable对象的set方法，会结合之前immutable之前的值和设置的值，返回一个全新的对象
+state.set('focused', true);
+```
+
 
 
 
