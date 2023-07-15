@@ -18,8 +18,8 @@ import {
 
 class Header extends Component {
 
-	getSearchTag(show) {
-		if (show) {
+	getSearchTag() {
+		if (this.props.focused) {
 			return (
 				<SearchInfo>
 					<SearchInfoTitle>
@@ -27,14 +27,13 @@ class Header extends Component {
 						<SearchInfoSwitch>换一换</SearchInfoSwitch>
 					</SearchInfoTitle>
 					<div>
-						<SearchInfoItem>Golang</SearchInfoItem>
-						<SearchInfoItem>Rust</SearchInfoItem>
-						<SearchInfoItem>Java</SearchInfoItem>
-						<SearchInfoItem>PHP</SearchInfoItem>	
-						<SearchInfoItem>Golang</SearchInfoItem>
-						<SearchInfoItem>Rust</SearchInfoItem>
-						<SearchInfoItem>Java</SearchInfoItem>
-						<SearchInfoItem>PHP</SearchInfoItem>	
+						{
+							this.props.list.map((item) => {
+								return (
+									<SearchInfoItem key={item}>{item}</SearchInfoItem>			
+								)
+							})
+						}
 					</div>
 				</SearchInfo>
 			);
@@ -78,13 +77,15 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		focused: state.get('header').get('focused')
+		focused: state.get('header').get('focused'),
+		list: state.get('header').get('list')
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		handleInputFocus() {
+			dispatch(actionCreators.getSearchTagList());
 			dispatch(actionCreators.searchFocus());
 		},
 		handleInputBlur() {

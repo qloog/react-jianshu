@@ -440,9 +440,79 @@ state.getIn['header', 'focused']
 
 主要是ui的布局处理
 
-14、从接口中获取数据
+14、安装 redux-thunk
 
 > 将header的无状态组件改为带类风格组件，方便后续方法方便获取参数，不用来回传递参数。
+
+为了 **在action中可以传递函数** (默认只能传递对象)，需要安装一个 redux中间件(action和store之间) `redux-thunk`
+
+```
+npm install redux-thunk
+```
+
+使用 `redux-thunk`, 即在 `store/index.js` 中进行简单配置
+
+```
+import { createStore, compose, applyMiddleware } from 'redux';
+// 新增
+import thunk from 'redux-thunk';
+import reducer from './reducer';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnhancers(
+	// 新增
+	applyMiddleware(thunk);
+));
+
+export default store;
+```
+
+15、从接口中获取数据
+
+新增调用 `dispatch(actionCreators.getSearchTagList());`
+
+然后在 `actionCreators` 里增加 `getSearchTagList` 函数(注意：不是返回的对象了)
+
+为了能调用远程api, 这了安装一个http库 `axios`
+
+```
+npm install axios
+```
+
+新增函数
+
+```
+// src/commom/header/actionCreators.js
+export const getSearchTagList = () => {
+	return (dispatch) => {
+		// 配发一个异步的请求
+		axios.get('/api/rec_taglist.json').then((res) => {
+			const data = res.data;
+			// 派发action给store
+			dispatch(changeList(data.data));
+		}).catch(() => {
+			console.log('error');
+		})
+	}
+};
+```
+
+> 注意数据格式(js格式和immutable格式)之间传递保持一致，需要使用 fromJS 进行转换
+
+从 store 中获取 list
+
+```
+const mapStateToProps = (state) => {
+	return {
+		focused: state.get('header').get('focused'),
+		list: state.get('header').get('list')
+	}
+}
+```
+
+最后在ui组件中使用 `list.map` 进行展示。
+
 
 
 
