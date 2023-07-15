@@ -3,6 +3,14 @@ import { fromJS } from 'immutable';
 import axios from 'axios';
 
 // 这里统一定义action
+// NOTE: 需要导出的都放在上面，需要导出的放在下面
+
+const changeList = (data) => ({
+	type: contants.CHANGE_LIST,
+	// NOTE: 这里的data为传过来的js数组，
+	// 为了和 reducer 中的保持一致，这里需要使用fromJS进行转换
+	data: fromJS(data)
+});
 
 
 export const searchFocus = () => ({
@@ -11,13 +19,6 @@ export const searchFocus = () => ({
 
 export const searchBlur = () => ({
 	type: contants.SEARCH_BLUR
-});
-
-const changeList = (data) => ({
-	type: contants.CHANGE_LIST,
-	// NOTE: 这里的data为传过来的js数组，
-	// 为了和 reducer 中的保持一致，这里需要使用fromJS进行转换
-	data: fromJS(data)
 });
 
 // 以上都是返回的对象
