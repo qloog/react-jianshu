@@ -340,4 +340,10 @@ const store = createStore(reducer, composeEnhancers());
 export default store;
 ```
 
+9、使用 combineReducers 优化代码
+
+- 1. 随着业务代码越写越多，我们的 `src/store/reducer` 里的代码量也会越来越多，变的不好维护  
+- 2. 此时我们可以将 `src/store/reducer` 里的代码进行拆分，将其业务代码写到对应的组件内, 比如 `src/common/header/score/reducer`  
+- 3. 然后使用 `combineReducers` 在 `src/store/reducer` 中进行组合
+
 
