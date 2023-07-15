@@ -352,6 +352,37 @@ export default store;
 
 在组件 `header` 中新建 `actionCreators.js` 和 `contants.js`， 然后填充对应的内容。
 
+```
+// actionCreators.js
+import * as contants from './contants';
+
+export const searchFocus = () => ({
+	type: contants.SEARCH_FOCUS
+});
+
+export const searchBlur = () => ({
+	type: contants.SEARCH_BLUR
+});
+
+// contants.js
+export const SEARCH_FOCUS = 'header/SEARCH_FOCUS';
+export const SEARCH_BLUR = 'header/SEARCH_BLUR';
+
+```
+
+10、统一store出口
+
+为了store的使用，会将store下的内容，都统一在 `index.js` 中进行导出。
+
+```
+import reducer from './reducer';
+// 导出
+import * as actionCreators from './actionCreators';
+import * as contants from './contants';
+
+export { reducer, actionCreators, contants };
+```
+
 
 
 
