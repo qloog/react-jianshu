@@ -513,6 +513,13 @@ const mapStateToProps = (state) => {
 
 最后在ui组件中使用 `list.map` 进行展示。
 
+16. 增加换一换功能
+
+
+## Reference
+
+https://www.youtube.com/watch?v=wUXBHCrRN14&list=PL9nxfq1tlKKnza3MPogWqaYIPtdW_G2lF&index=60
+
 
 
 

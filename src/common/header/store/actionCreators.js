@@ -9,7 +9,8 @@ const changeList = (data) => ({
 	type: contants.CHANGE_LIST,
 	// NOTE: 这里的data为传过来的js数组，
 	// 为了和 reducer 中的保持一致，这里需要使用fromJS进行转换
-	data: fromJS(data)
+	data: fromJS(data),
+	totalPage: Math.ceil(data.length / 10)
 });
 
 
@@ -19,6 +20,19 @@ export const searchFocus = () => ({
 
 export const searchBlur = () => ({
 	type: contants.SEARCH_BLUR
+});
+
+export const mouseEnter = () => ({
+	type: contants.MOUSE_ENTER
+});
+
+export const mouseLeave = () => ({
+	type: contants.MOUSE_LEAVE
+});
+
+export const changePage = (page) => ({
+	type: contants.CHANGE_PAGE,
+	page
 });
 
 // 以上都是返回的对象
