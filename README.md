@@ -515,6 +515,42 @@ const mapStateToProps = (state) => {
 
 16. 增加换一换功能
 
+17. 增加路由功能
+
+安装组件
+
+```
+npm install react-router-dom
+```
+
+然后在 App.js 中进行配置
+
+```
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './common/header';
+import store from './store';
+
+class App extends Component {
+  render() {
+    return (
+    	<Provider store={store}>
+    		<div>
+	      	<Header />
+	      	<BrowserRouter>
+	      		<Routes>
+	      			<Route exact path='/' element={<Home />} />
+	      			<Route path='/detail' element={<Detail />} />
+	      		</Routes>
+	      	</BrowserRouter>
+      	</div>
+      </Provider>
+    );
+  }
+}
+```
+
 
 ## Reference
 
