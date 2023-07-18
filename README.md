@@ -551,6 +551,8 @@ class App extends Component {
 }
 ```
 
+18. 首页banner, topic
+
 
 ## Reference
 
