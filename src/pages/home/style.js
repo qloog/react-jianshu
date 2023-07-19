@@ -18,7 +18,7 @@ export const HomeLeft = styled.div`
 `;
 
 export const HomeRight = styled.div`
-	width: 240px;
+	width: 280px;
 	float: right;
 `;
 
@@ -76,5 +76,18 @@ export const ListInfo = styled.div`
 		line-height: 24px;
 		font-size: 13px;
 		color: #999;
+	}
+`;
+
+export const RecWrapper = styled.div`
+	width: 280px;
+	margin: 30px 0;
+`;
+
+export const RecItem = styled.div`
+		width: 280px;
+		height: 50px;
+		background: url(${(props) => props.imgUrl});
+		border: 1px solid #dcdcdc;
 	}
 `;
