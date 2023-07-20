@@ -22,7 +22,6 @@ class Recommend extends Component {
 
 const mapState = (state) => ({
 	list: state.getIn(['home', 'recList'])
-
-})
+});
 
 export default connect(mapState, null)(Recommend);

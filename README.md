@@ -554,6 +554,7 @@ class App extends Component {
 18. 首页banner, topic
 19. 添加文章列表
 20. 添加推荐列表
+21. 异步加载数据
 
 
 ## Reference

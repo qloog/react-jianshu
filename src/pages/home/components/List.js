@@ -26,8 +26,8 @@ class List extends Component {
 }
 
 const mapState = (state) => ({
-	list: state.getIn(['home', 'artitleList'])
-})
+	list: state.getIn(['home', 'articleList'])
+});
 
 export default connect(mapState, null)(List);
 
