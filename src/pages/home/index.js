@@ -5,7 +5,7 @@ import List from './components/List';
 import Recommend from './components/Recommend';
 import Writter from './components/Writter';
 import { HomeWrapper, HomeLeft, HomeRight } from './style';
-import axios from 'axios';
+import { actionCreators } from './store';
 
 class Home extends Component {
 	render() {
@@ -25,25 +25,15 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('/api/home.json').then((res) => {
-			const result = res.data.data;
-			console.log('----------');
-			console.log(result);
-			const action = {
-				type: 'change_home_data',
-				topicList: result.topicList,
-				articleList: result.articleList,
-				recList: result.recList,
-			}
-			this.props.changeHomeData(action);
-		})
+		this.props.changeHomeData();
 	}
 }
 
 // map dispatch to props
+// 容器组件，上面的render为ui组件
 const mapDispatch = (dispatch) => ({
-	changeHomeData(action) {
-		// send action to store
+	changeHomeData() {
+		const action = actionCreators.getHomeInfo();
 		dispatch(action);
 	}
 })
