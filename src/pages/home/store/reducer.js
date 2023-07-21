@@ -5,7 +5,8 @@ import * as constants from './constants';
 const defaultState = fromJS({
 	topicList: [],
 	articleList: [],
-	recList: []
+	recList: [],
+	articlePage: 1
 });
 
 // NOTE: reducer 必须是一个纯函数
@@ -17,6 +18,11 @@ export default (state = defaultState, action) => {
 				topicList: fromJS(action.topicList),
 				articleList: fromJS(action.articleList),
 				recList: fromJS(action.recList)
+			});
+		case constants.ADD_ARTICLE_LIST:
+			return state.merge({
+				articleList: state.get('articleList').concat(action.list),
+				articlePage: action.nextPage
 			});
 		default:	
 			return state;		

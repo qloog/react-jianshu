@@ -555,6 +555,7 @@ class App extends Component {
 19. 添加文章列表
 20. 添加推荐列表
 21. 异步加载数据
+22. 增加加载更多功能
 
 
 ## Reference

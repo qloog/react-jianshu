@@ -91,3 +91,15 @@ export const RecItem = styled.div`
 		border: 1px solid #dcdcdc;
 	}
 `;
+
+export const LoadMore = styled.div`
+	width: 100%;
+	height: 40px;
+	margin: 30px 0;
+	line-height: 40px;
+	background: #a5a5a5;
+	text-align: center;
+	border-radius: 20px;
+	color: #fff;
+	cursor: pointer;
+`;
