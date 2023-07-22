@@ -12,7 +12,7 @@ class List extends Component {
 				{
 					list.map((item, index) => {
 						return (
-							<Link key={index} to="/detail">
+							<Link key={index} to={"/detail/" + item.get('id')}>
 								<ListItem>
 									<img className="pic" src="//upload-images.jianshu.io/upload_images/19418900-27c32b8d63bc2649.jpg?x-oss-process=image/resize,w_360,h_240" />
 									<ListInfo>

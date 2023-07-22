@@ -573,7 +573,50 @@ import { Link } from 'react-router-dom';
 
 需要注意 Link 整体必须是在 `BrowserRouter` 组件下，不能是 `Routes` 下。
 
-25: 增加详情页，使用redux来管理数据, 异步加载数据
+25. 增加详情页，使用redux来管理数据, 异步加载数据
+
+26. 使用参数获取动态数据
+
+有两种方式：
+
+a.使用动态路由
+
+访问方式：`http://localhost/deital/1`,
+这样就需要修改 Route中的path参数，由原来的 `path='/detail'` 改为 `path='/detail/:id'`
+然后通过 `this.props.match.params.id` 可以拿到上一个页面传递过来的id。
+
+b. 使用query的方式
+访问方式：`http://localhost/deital?id=1`, path保持为原来的 `path='/detail'` , 可以匹配到访问中的路由。这时需要通过 `this.props.location.search` 获取，获取到的是 `?id=1`, 需要手动解析出里面的数字。
+
+推荐使用第一种方式来获取，但是如果使用的是 'react-router-dom' 的v6版本，获取到的 `this.props.match` 是 undefined, 所以需要通过下面的方式来获取
+
+```
+import { useParams } from 'react-router-dom';
+
+const { id } = useParams();
+```
+
+但是呢，这种写法只适用于函数式组件，对于通过类的方式来定义的话，上面的写法也是会报错的，所以还需要换一种方式来获取
+
+```
+// 1. 添加 useParams
+import { useParams } from 'react-router-dom';
+
+// 2. 在和类组件同级定义一个函数
+  export function withRouter(Children){
+     return(props)=>{
+
+        const match  = {params: useParams()};
+        return <Children {...props}  match = {match}/>
+    }
+  }
+// 3. 用withRouter包裹组件
+export default withRouter(DetailsPage);
+// 如果是使用了 connect, 则改为
+export default connect(mapState, mapDispatch)(withRouter(Detail));
+```
+
+
 
 
 ## Reference
