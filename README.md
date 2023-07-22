@@ -573,7 +573,7 @@ import { Link } from 'react-router-dom';
 
 需要注意 Link 整体必须是在 `BrowserRouter` 组件下，不能是 `Routes` 下。
 
-
+25: 增加详情页，使用redux来管理数据, 异步加载数据
 
 
 ## Reference
