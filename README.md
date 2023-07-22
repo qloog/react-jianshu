@@ -556,6 +556,24 @@ class App extends Component {
 20. 添加推荐列表
 21. 异步加载数据
 22. 增加加载更多功能
+23. todo: 增加回到顶部
+24. 路由跳转，
+如果使用html `a` 标签，功能没有问题，但是没跳转一次就会重新加载一次DOM，不符合单页面应用的特点
+所以我们需要使用 路由组件 `Link` 来进行跳转.
+
+> 可以在控制台下的 Doc 里查看document 查看dom的加载情况
+
+```
+import { Link } from 'react-router-dom';
+
+<Link to='/detail' >
+	// 其他内容
+</Link>
+```
+
+需要注意 Link 整体必须是在 `BrowserRouter` 组件下，不能是 `Routes` 下。
+
+
 
 
 ## Reference

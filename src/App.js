@@ -8,16 +8,14 @@ import store from './store';
 class App extends Component {
   render() {
     return (
-    	<Provider store={store}>
-    		<div>
-	      	<Header />
-	      	<BrowserRouter>
-	      		<Routes>
-	      			<Route exact path='/' element={<Home />}></Route>
-	      			<Route path='/detail' element={<Detail />} />
-	      		</Routes>
-	      	</BrowserRouter>
-      	</div>
+    	<Provider store={store}>	
+      	<BrowserRouter>
+          <Header />
+      		<Routes>
+      			<Route exact path='/' element={<Home />}></Route>
+      			<Route path='/detail' element={<Detail />} />
+      		</Routes>
+      	</BrowserRouter>
       </Provider>
     );
   }
