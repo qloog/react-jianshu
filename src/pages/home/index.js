@@ -12,7 +12,7 @@ class Home extends Component {
 		return (
 			<HomeWrapper>
 				<HomeLeft>
-					<img className='banner-img' src='https://lupic.cdn.bcebos.com/20220107/3085894865_14_472_337.jpg' />
+					<img className='banner-img' alt='' src='https://lupic.cdn.bcebos.com/20220107/3085894865_14_472_337.jpg' />
 					<Topic />
 					<List />
 				</HomeLeft>

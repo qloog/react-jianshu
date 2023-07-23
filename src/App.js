@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './common/header';
 import Home from './pages/home';
+import Login from './pages/login';
 import Detail from './pages/detail';
 import store from './store';
 
@@ -14,6 +15,7 @@ class App extends Component {
           <Header />
       		<Routes>
       			<Route exact path='/' element={<Home />}></Route>
+            <Route exact path='/login' element={<Login />}></Route>
       			<Route path='/detail/:id' element={<Detail />} />
       		</Routes>
       	</BrowserRouter>

@@ -87,7 +87,7 @@ export const RecWrapper = styled.div`
 export const RecItem = styled.div`
 		width: 280px;
 		height: 50px;
-		background: url(${(props) => props.imgUrl});
+		background: url(${(props) => props.imgurl});
 		border: 1px solid #dcdcdc;
 	}
 `;

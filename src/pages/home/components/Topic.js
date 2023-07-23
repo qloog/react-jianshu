@@ -12,6 +12,7 @@ class Topic extends Component {
 							<TopicItem key={item.get('id')}>
 								<img 
 									className="topic-pic"
+									alt=""
 									src="//upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
 								/>
 								{item.get('id')}-{item.get('title')}

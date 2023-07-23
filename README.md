@@ -616,7 +616,10 @@ export default withRouter(DetailsPage);
 export default connect(mapState, mapDispatch)(withRouter(Detail));
 ```
 
+27. 增加登录功能
 
+a. 添加登录ui
+b. 增加登录逻辑处理
 
 
 ## Reference

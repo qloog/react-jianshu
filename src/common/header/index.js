@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
+import { actionCreators as loginActionCreators} from '../../pages/login/store';
 import {
 	HeaderWrapper,
 	Logo,
@@ -63,7 +64,11 @@ class Header extends Component {
 					<NavItem className="left active">首页</NavItem>
 					<NavItem className="left">下载</NavItem>
 					<NavItem className="right">AA</NavItem>
-					<NavItem className="right">登录</NavItem>
+					{
+						this.props.login 
+						? <NavItem onClick={this.props.logout}className="right">退出</NavItem>
+						: <Link to='/login'><NavItem className="right">登录</NavItem></Link>
+					}
 					<SearchWrapper>
 						<CSSTransition
 							in={this.props.focused}
@@ -94,7 +99,8 @@ const mapStateToProps = (state) => {
 		list: state.get('header').get('list'),
 		page: state.get('header').get('page'),
 		totalPage: state.get('header').get('totalPage'),
-		mouseIn: state.get('header').get('mouseIn')
+		mouseIn: state.get('header').get('mouseIn'),
+		login: state.get('login').get('login')
 	}
 }
 
@@ -119,6 +125,9 @@ const mapDispatchToProps = (dispatch) => {
 			} else {
 				dispatch(actionCreators.changePage(1));		
 			}
+		},
+		logout() {
+			dispatch(loginActionCreators.logout());	
 		}
 	}
 }

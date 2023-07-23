@@ -8,9 +8,9 @@ class Recommend extends Component {
 		return (
 			<RecWrapper>
 				{
-					list.map((item) => {
+					list.map((item, index) => {
 						return (
-							<RecItem id={item.get('id')} imrUrl={item.get('imgURL')} >
+							<RecItem key={item.get('id')} id={item.get('id')} imgurl={item.get('imgURL')} >
 							</RecItem>			
 						)
 					})
