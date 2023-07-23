@@ -618,8 +618,12 @@ export default connect(mapState, mapDispatch)(withRouter(Detail));
 
 27. 增加登录功能
 
+主要是处理 登录状态
+
 a. 添加登录ui
 b. 增加登录逻辑处理
+
+28. 为页面增加登录鉴权
 
 
 ## Reference
