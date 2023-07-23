@@ -625,6 +625,34 @@ b. 增加登录逻辑处理
 
 28. 为页面增加登录鉴权
 
+29. 页面js分离
+
+默认情况下，应用生成的bundle.js 是一个文件，当应用越来越大的时候，这个js文件也会变的越来越大，页面首次加载的时候就需要更多的网络耗时，为了让其减小，可以使用一些组件来让js来按页面分别在家，可以引入一个 `react-loadable`
+
+```
+// 1. 安装 loadable
+npm install react-loadable
+
+// 2.创建loadable.js
+touch loadable.js
+
+// 3.填充以下内容
+import React from 'react';
+import Loadable from 'react-loadable';
+
+const LoadableComponent = Loadable({
+  loader: () => import('./index'),
+  loading() {
+  	return <div>loading</div>
+  },
+});
+
+export default () => <LoadableComponent/>
+
+// 4. 在app.js里修改detail的from位置即可
+import Detail from './pages/detail/loadable';
+```
+
 
 ## Reference
 
