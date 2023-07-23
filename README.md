@@ -653,10 +653,14 @@ export default () => <LoadableComponent/>
 import Detail from './pages/detail/loadable';
 ```
 
+30. 项目的上线流程
+31. 版本如何升级
+
+
 
 ## Reference
 
-https://www.youtube.com/watch?v=wUXBHCrRN14&list=PL9nxfq1tlKKnza3MPogWqaYIPtdW_G2lF&index=60
+https://www.youtube.com/playlist?list=PL9nxfq1tlKKnza3MPogWqaYIPtdW_G2lF
 
 
 
