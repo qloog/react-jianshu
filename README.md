@@ -22,10 +22,17 @@ In the project directory, you can run:
 npm install -g create-react-app
 ```
 
+> 如果不安装，后面可以使用 `npx` 进行项目的创建
+
 ### 新建项目
 
-```
+```bash
 create-react-app jianshu-react
+
+# 如果是安装 typescript
+create-react-app jianshu-react --template typescript
+# 或者
+npx create-react-app jianshu-react --template typescript
 ```
 
 > 使用 5.0+的 create-react-app 创建的project, App.js 中的代码风格为函数式的，如果想写类风格的，需要手动修改，这里手动改为了类风格
