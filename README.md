@@ -104,6 +104,11 @@ export default (state = defaultState, action) => {
 
 > 这里需要回忆下 redux中 store和reducer之间的关系
 
+> redux 的工作流程
+
+<img width="651" alt="image" src="https://github.com/qloog/react-jianshu/assets/3043638/e867e71e-6a3f-42bc-bc14-c4420d4a9ddd">
+
+
 4、在App.js中引入 store
 
 ```
