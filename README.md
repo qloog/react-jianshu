@@ -315,6 +315,7 @@ class Header extends Component {
 根据说明文档(https://github.com/reduxjs/redux-devtools/tree/main/extension#12-advanced-store-setup)，进行代码配置, 如下
 
 ```
+// store/index.js
 import { createStore, compose } from 'redux';
 import reducer from './reducer';
 
